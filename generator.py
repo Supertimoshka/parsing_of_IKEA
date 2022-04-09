@@ -5,19 +5,19 @@ import random
 file = open("Names_of_ikea.txt", "r", encoding="utf-8")
 words = file.read().split("\n")
 words.sort(key=len)
-# min_len = math.inf
-# max_len = 0
-min_len = len(words[0])
-max_len = len(words[len(words) - 1])
+min_len = math.inf
+max_len = 0
+# min_len = len(words[0])
+# max_len = len(words[len(words) - 1])
 bigrams = {}
 
 for i in range(0, len(words)):
     len_word = len(words[i])
 
-    # if len_word > max_len:
-    #     max_len = len_word
-    # if len_word < min_len:
-    #     min_len = len_word
+    if len_word > max_len:
+        max_len = len_word
+    if len_word < min_len:
+        min_len = len_word
 
     if bigrams.get(words[i][0]) == None:
         bigrams[words[i][0]] = 1
